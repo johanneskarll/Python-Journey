@@ -412,4 +412,3 @@ JSON Built-in Python.
         data.update(newdata) -> di update
         json.dump(data, data_file, indent = 4) -> baru ditulis ulang
 
-remon
