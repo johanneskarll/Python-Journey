@@ -1,5 +1,4 @@
-Data type sama kea c++ tapi bedanya gada double, long, maupun longlong
-untuk ngeluarin output pake PRINT. sementara untuk nyimpen input pake variabel = input
+
 
 casting buat nyimpen tipe data. misal int(input(""))
         ngecek tipe data = type(namavariabel)
