@@ -22,8 +22,9 @@
 
 import pandas
 
-data = pandas.read_csv("./10. CSV Testing (Pandas)/weather_data.csv")
-# print(data)
+data = pandas.read_csv("./100 Days of Code/10. CSV Testing (Pandas)/weather_data.csv")
+print(data['temp'][3])
+print(data.iloc[3][1])
 # print(type(data))
 # print(data["temp"]) # pandas menganggap row pertama adalah index penandanya
 # print(data.temp)
@@ -45,11 +46,11 @@ data = pandas.read_csv("./10. CSV Testing (Pandas)/weather_data.csv")
 
 # Get Data in Row
 # ini akan mengeluarkan baris yang memiliki 'day' bernilai Monday
-Monday = data[data.day == "Monday"] 
-mondaytempf = Monday.temp[0]  * 9 / 5 + 32
-# print(mondaytempf) 
-print(Monday,type(Monday)) #disini monday dari read csv ya pasti tipenya dataframe
-print(f"Monday.temp tipe = ",type(Monday.temp)) #disini monday karena udah masuk ke attributenya .tipe ini sama aja kea 
+# Monday = data[data.day == "Monday"] 
+# mondaytempf = Monday.temp[0]  * 9 / 5 + 32
+# # print(mondaytempf) 
+# print(Monday,type(Monday)) #disini monday dari read csv ya pasti tipenya dataframe
+# print(f"Monday.temp tipe = ",type(Monday.temp)) #disini monday karena udah masuk ke attributenya .tipe ini sama aja kea 
 # print(f"Monday.temp[0] tipe = ",type(Monday.temp[0])) #disini monday.temp
 
 # ini akan mengeluarkan baris yang memilki temp max
