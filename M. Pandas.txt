@@ -1,5 +1,6 @@
 Pandas adalah module dari luar python dan harus diinstall terlebih dahulu.
 Module ini membantu kita dalam hal memanage data, memanipulasi data, dll.
+link documentation pandas : https://pandas.pydata.org/docs/reference/io.html
 
 import pandas (lebih kompleks dari csv biasa) 
 beberapa fitur dari pandas adalah sebagai berikut:
@@ -16,18 +17,29 @@ beberapa fitur dari pandas adalah sebagai berikut:
             1    Tuesday    14      Rain
             2  Wednesday    15      Rain
 
-        kita juga bisa mengakses hanya kolom temp seperti ini
-        data["temp"] atau bisa juga data.temp -> typenya disini berubah menjadi series, karena DataFrame adalah gabungan dari beberapa series
-            0    12
-            1    14
-            2    15
-            Name: temp, dtype: int64
-        
-        selain kolom kita juga bisa mengeluarkan baris seperti ini
-        Monday = data[data.day == "Monday"] -> typenya disini tetap dataFrame karena tetap berupa gabungan beberapa series
-                  day  temp condition
-            0  Monday    12     Sunny
+    Mengambil/mengakses data 
+        data["temp"] atau bisa juga data.temp
+            kita juga bisa mengakses hanya kolom temp seperti ini
+            typenya disini berubah menjadi series, karena DataFrame adalah gabungan dari beberapa series
+                0    12
+                1    14
+                2    15
+                Name: temp, dtype: int64
 
+        Monday = data[data.day == "Monday"]
+            sementara itu untuk mengeluarkan baris seperti ini
+            typenya disini tetap dataFrame karena tetap berupa gabungan beberapa series
+                    day  temp condition
+                0  Monday    12     Sunny
+
+        DataFrame.loc dan DataFrame.iloc
+            dataframe yang lebih kompleks dapat menggunakan syntax ini
+            loc digunakan ketika kita mengambil by label 
+            iloc digunakan ketika kita mengambil by index
+
+        
+
+    Menghitung data
         Method untuk mencari nilai dari suatu value 
             (-> asal sudah berupa series)
             Mean = data["temp"].mean()
@@ -35,6 +47,7 @@ beberapa fitur dari pandas adalah sebagai berikut:
             Modus = data["temp"].mode()
             Max = data["temp"].max()
 
+    Konversi data
         Konversi dari csv
             karena kita sudah membaca csv menggunakan pandas kita dapat mengconvernya menjadi
             dari DataFrame -> dictionary menggunakan to_dict() contoh,

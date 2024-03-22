@@ -9,9 +9,12 @@ import pandas as pd
 import datetime as dt
 import smtplib
 import random
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-my_gmail = "johanneskarl50@gmail.com"
-password = "ampl nlkf oygp fbgf"
+my_gmail = os.getenv("MYGMAIL")
+password = os.getenv("EMAIL50PASS")
 
 randomletter = ["./18. Birthday Wisher (SMTP+DT)/birthday-wisher/letter_templates/letter_1.txt",
                 "./18. Birthday Wisher (SMTP+DT)/birthday-wisher/letter_templates/letter_2.txt",

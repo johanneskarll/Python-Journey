@@ -22,9 +22,9 @@
 
 import pandas
 
-data = pandas.read_csv("./100 Days of Code/10. CSV Testing (Pandas)/weather_data.csv")
-print(data['temp'][3])
-print(data.iloc[3][1])
+data = pandas.read_csv("10. CSV Testing (Pandas)\weather_data.csv")
+print(data)
+# print(data.iloc[3][1])
 # print(type(data))
 # print(data["temp"]) # pandas menganggap row pertama adalah index penandanya
 # print(data.temp)

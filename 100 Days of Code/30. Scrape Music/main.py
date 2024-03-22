@@ -2,9 +2,12 @@ import requests
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-clientid = "1af8d92d1e8042609066e71f7941fc42"
-clientsecret = "b5a9c3820825403b9ab129a13a29f1e9"
+clientid = os.getenv("SPOTIFYID")
+clientsecret = os.getenv("SPOTIFYSECRET")
 redirecturl="http://example.com"
 spotifyapi = "https://api.spotify.com"
 

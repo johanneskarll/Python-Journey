@@ -1,12 +1,15 @@
 import smtplib
 import requests
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+MYGMAIL = os.getenv("MYGMAIL")
+MYPASS = os.getenv("EMAIL50PASS")
 STOCK = "BTC"
 COMPANY_NAME = "bitcoin"
-MYGMAIL = "johanneskarl50@gmail.com"
-MYPASS = "ampl nlkf oygp fbgf"
-ALPHAKEY = "W6SZV5U9EQ388M4W"
-NEWSKEY = "26a3676f752b4cdc908e591b353fba88"
+ALPHAKEY = os.getenv("ALPHAKEY")
+NEWSKEY = os.getenv("NEWSKEY")
 listemail = ["johanneskarl50@gmail.com","harleygeraldi@gmail.com","pitbullbon@gmail.com"]
 newsparams = {
     "q": COMPANY_NAME,

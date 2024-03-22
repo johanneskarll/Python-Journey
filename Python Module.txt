@@ -248,3 +248,5 @@ Module dari luar -------------
                     app.run(debug=True)
             setelah kita memasukkan parameter "index.html" yaitu file html kita, kita juga dapat memasukkan variabel kedalamnya yang nantinya akan dilempar ke file html tersebut.
             sekarang pada file html kita, setiap kali kita menggunakan {{ num }} ini akan mengenerate angka random baru setiap kali refreshnya.
+
+            Sementara untuk multiline statement

@@ -1,9 +1,12 @@
 import smtplib
 import datetime as dt
 import random
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-my_gmail = "johanneskarl50@gmail.com"
-password = "ampl nlkf oygp fbgf"
+my_gmail = os.getenv("MYGMAIL")
+password = os.getenv("EMAIL50PASS")
 
 now = dt.datetime.now()
 dayweek = now.weekday()
@@ -18,4 +21,4 @@ if dayweek == 0:
                 to_addrs="johanneskarl50@gmail.com", 
                 msg=f"Subject:Hey it's Monday here is your quotes \n\n{random.choice(listquotes)}"
         )
-    
+

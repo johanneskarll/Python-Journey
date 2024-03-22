@@ -1,5 +1,5 @@
-TWTUSERNAME = "@karlrepository"
-TWTPASS = "J0hannesk2rl"
+TWTUSERNAME = ""
+TWTPASS = ""
 twitteraddr = "https://www.twitter.com"
 speedtestaddr = "https://www.speedtest.net/"
 PROM_DOWN = 150
