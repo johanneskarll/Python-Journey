@@ -249,4 +249,9 @@ Module dari luar -------------
             setelah kita memasukkan parameter "index.html" yaitu file html kita, kita juga dapat memasukkan variabel kedalamnya yang nantinya akan dilempar ke file html tersebut.
             sekarang pada file html kita, setiap kali kita menggunakan {{ num }} ini akan mengenerate angka random baru setiap kali refreshnya.
 
-            Sementara untuk multiline statement
+            Contoh ketika kita ingin menggunakan for atau if didalam file html kita
+            {% for i in range(10): %}
+                <a>{{ print(i) }}</a>
+            {% endfor %}
+
+            
