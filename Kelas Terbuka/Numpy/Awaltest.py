@@ -1,7 +1,7 @@
 import numpy as np
 
-list_a = [1,2,3,4]
 vector_a = np.array([1,2,3,4])
+list_a = [1,2,3,4]
 
 print(f"list_a = {list_a}") # list ada koma komanya
 print(f"vector_a = {vector_a}")
