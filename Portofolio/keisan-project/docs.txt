@@ -1,0 +1,41 @@
+Proyek ini adalah sistem kasir berbasis Python. 
+Pengembang dapat memperluas fitur seperti analisis data, integrasi kamera, 
+atau menambahkan dukungan untuk mata uang baru.
+
+keisan-project/
+├── main.py         # Program utama untuk menjalankan aplikasi
+├── otsuri.py       # Logika kembalian uang
+├── stock.py        # Manajemen stok uang
+├── data/           # Folder untuk file data
+│   ├── stock.csv   # Data stok pecahan uang
+│   ├── kurs.csv    # Data kurs mata uang asing {soon}
+├── tests/          # Folder untuk unit test {soon}
+├── utils/          # Helper functions (misal, integrasi kamera) {soon}
+└── docs.txt        # Dokumentasi proyek
+
+penjelasan atribut
+1. main.py --------------------------------------------------------------------------------------------
+goukei (float) menerima input dari user total belanja / total uang yang harus dibayar
+haittaokane (float) menerima input dari user total uang yang masuk
+
+2. otsuri.py ------------------------------------------------------------------------------------------
+3. stock.py -------------------------------------------------------------------------------------------
+
+
+'''
+お釣り
+Jadi idenya adalah bikin program, ngambil data stock dr file csv
+buat dijadiin kembalian jadi misalkan :
+kembalian 7 yen, stock 5 yen udah abis berarti keluarin 7 koin 1 yen
+kemudian update balik stock uangnya. dan nambahin dengan duit yang dimasukin 
+
+++ updatenya (data analysis)
+bakal ada timestamp pembayaran jam berapa tanggal berapa,
+itu masuk ke data csv lagi buat nnti di telusuri pelanggan biasanya bayar pake uang berapa
+dan lebih baik kita sebagai pemilik mesin menyiapkan uang berapa berapa.
+
++++ tambahan pake (camera operate) ->> input (either arduino/pure software)
+bisa ngescan duit kertas dan koin dari camera buat input duit berapa
+
++++ tamabahan pake camera, ngescan barcode dari barang
+'''
