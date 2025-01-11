@@ -1,61 +1,61 @@
-# class 
-def otsuriokane (haittaokane,goukei) :
-	jumlahkembalian = haittaokane - goukei
-	print(f"Kembali {jumlahkembalian}\n")
-	
-	ichiman = gosen = issen = gohyaku = hyakuen = gojuu = juuen = goen = ichien = 0
-	while (jumlahkembalian >= 10000):
-		ichiman+=1
-		jumlahkembalian -= 10000
-	
-	
-	while (jumlahkembalian >= 5000):
-		gosen+=1
-		jumlahkembalian -= 5000
-	
-	
-	while (jumlahkembalian >= 1000):
-		issen+=1
-		jumlahkembalian -= 1000
-	
-	
-	while (jumlahkembalian >= 500):
-		gohyaku+=1
-		jumlahkembalian -= 500
-	
-	
-	while (jumlahkembalian >= 100):
-		hyakuen+=1
-		jumlahkembalian -= 100
-	
-	
-	while (jumlahkembalian >= 50):
-		gojuu+=1
-		jumlahkembalian -= 50
-	
-	
-	while (jumlahkembalian >= 10):
-		juuen+=1
-		jumlahkembalian -= 10
-	
+class TransactionManager: 
+    def __init__(self,stockdenom,totaltrans,totalpay):
+        self.returnmoney = totalpay-totaltrans
+        self.currencysymbol = stockdenom['symbol']
+        self.stockreal = stockdenom['values']
+
+    def idealcalculate (self,stockreallocal=[],returnmoneylocal=[]) :
+        # notes: kenapa dibikin gini, karena siapa tau bakal kepake jika mau parameternya ga default, alias di override dengan data lain
+        if not stockreallocal:
+            stockreallocal = self.stockreal
+        if not returnmoneylocal:
+            returnmoneylocal = self.returnmoney
+
+        idealchange = {denom: 0 for denom in stockreallocal}
+        remaining = returnmoneylocal
+
+        for denom in stockreallocal:
+            while remaining >= denom:
+                idealchange[denom] += 1
+                remaining -= denom
+
+        return idealchange
     
-	while (jumlahkembalian >= 5):
-		goen+=1
-		jumlahkembalian -= 5
-	
-    
-	while (jumlahkembalian >= 1):
-		ichien+=1
-		jumlahkembalian -= 1
-	
-	
-	print("okanenoshurui:")
-	print(f"¥ 10.000 x {ichiman}")
-	print(f"¥ 5.000 x {gosen}")
-	print(f"¥ 1.000 x {issen}")
-	print(f"¥ 500 x {gohyaku}")
-	print(f"¥ 100 x {hyakuen}")
-	print(f"¥ 50 x {gojuu}")
-	print(f"¥ 10 x {juuen}")
-	print(f"¥ 5 x {goen}")
-	print(f"¥ 1 x {ichien}")
+    def adjust_with_stock (self):
+        idealchange = self.idealcalculate()
+        sumchange = self.returnmoney #karena tetap ingin menghold informasi uang yg harus dikembalikan diawal
+        debttemp = 0
+        actual_change = {}
+
+        for denom in self.stockreal:
+            if sumchange <= 0:
+                break
+
+            if denom in idealchange: # apabila terdapat denom ini pada idealchange (dict)
+                needed = idealchange[denom] + debttemp // denom# needed = berapa banyak lembar ideal yang dibutuhkan
+                available = self.stockreal[denom] # berapa banyak lembar yang dimiliki
+
+                if (available > needed):
+                    to_give = needed
+                    debttemp = 0
+                else:                  #kekurangan
+                    to_give = available
+                    debttemp = denom * (needed-available)
+                actual_change[denom] = to_give #jumlah yang ada itu
+                self.stockreal[denom] -= to_give 
+                sumchange -= denom * to_give
+            
+            if actual_change[denom] <= 0:
+                del actual_change[denom]
+
+        if sumchange > 0:
+            raise ValueError("Stok tidak cukup untuk memberikan kembalian.")
+
+        return actual_change
+
+    def printreceipt (self):
+        print("Your change is: ")
+        custreceipt = self.adjust_with_stock()
+        for denom in custreceipt:
+            print(f"{self.currencysymbol}{denom} : {custreceipt[denom]}")
+        

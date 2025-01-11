@@ -15,12 +15,25 @@ keisan-project/
 
 penjelasan atribut
 1. main.py --------------------------------------------------------------------------------------------
-goukei (float) menerima input dari user total belanja / total uang yang harus dibayar
-haittaokane (float) menerima input dari user total uang yang masuk
+typekurs, untuk memberikan tipe kurs apa yang akan digunakan
+totaltrans (float) menerima input dari user total belanja / total uang yang harus dibayar
+totalpay (float) menerima input dari user total uang yang masuk
 
 2. otsuri.py ------------------------------------------------------------------------------------------
-3. stock.py -------------------------------------------------------------------------------------------
+returnmoney, menyimpan total yang harus dikembalikan ke customer 
+currencysybol, menyimpan symbol kurs yg digunakan
+stockreal, menyimpan data berupa dict yang berisi stock masing2 pecahan
+idealchange, sebuah dictionary  yang akan menyimpan jumlah masing-masing pecahan uang (denominasi) yang dibutuhkan untuk kembalian.
 
+function idealcalculate, menghitung pecahan uang berapa saja yang menjadi kembalian yang ideal dan mereturn dictionary
+function printreceipt, mengeluarkan output teks berapa saja uang pecahan sebagai output
+
+3. stock.py -------------------------------------------------------------------------------------------
+DENOMINATIONS, dictionary berisi list pecahan tiap mata uang
+dict_stock, menyimpan data kurs seperti simbol dan mengambil data berapa lembar yang dimiliki
+
+function infostock,
+function updatestock,
 
 '''
 お釣り
@@ -38,4 +51,10 @@ dan lebih baik kita sebagai pemilik mesin menyiapkan uang berapa berapa.
 bisa ngescan duit kertas dan koin dari camera buat input duit berapa
 
 +++ tamabahan pake camera, ngescan barcode dari barang
+'''
+
+'''
+alur sementara
+main mengirim tipe kurs dan meminta dari stock, list stock atas suatu kurensi pecahan uang, kemudian main akan melempar
+stock uang pecahan kurs tertentu dan total belanja dan uang ke otsuri untuk dihitung.
 '''
