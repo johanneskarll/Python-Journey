@@ -21,8 +21,7 @@ class TransactionManager:
 
         return idealchange
     
-    def adjust_with_stock (self):
-        idealchange = self.idealcalculate()
+    def adjust_with_stock (self,idealchange):
         sumchange = self.returnmoney #karena tetap ingin menghold informasi uang yg harus dikembalikan diawal
         debttemp = 0
         actual_change = {}
@@ -53,9 +52,8 @@ class TransactionManager:
 
         return actual_change
 
-    def printreceipt (self):
+    def printreceipt (self,custreceipt):
         print("Your change is: ")
-        custreceipt = self.adjust_with_stock()
         for denom in custreceipt:
             print(f"{self.currencysymbol}{denom} : {custreceipt[denom]}")
         

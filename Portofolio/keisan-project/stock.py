@@ -44,7 +44,7 @@ DENOMINATIONS = {
              },
 }
 
-# print(f"{DENOMINATIONS['JPY']['values'][10000]}")
+# print(f"{DENOMINATIONS['JPY']['values']}")
 
 class StockManager:
     def __init__(self,typekurs):
@@ -54,7 +54,12 @@ class StockManager:
             raise ValueError(f"Mata uang {typekurs} tidak didukung.")
 
     def infostock(self):
-        pass
+        print(self.dict_stock['values'])
+        # print(f"Stock change currency {self.typekurs}")
+        # for denom in self.dict_stock['values']:
+        #     print(f"{self.dict_stock['symbol']}{denom} : {self.dict_stock['values'][denom]}")
 
-    def updatestock(self):
-        pass
+    def updatestock(self, minuschange):
+        # next fitur bisa nambahin duit dari input uang yang masuk
+        for denom in minuschange:
+            self.dict_stock['values'][denom] -= minuschange[denom]
