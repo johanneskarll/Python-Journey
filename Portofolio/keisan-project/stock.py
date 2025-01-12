@@ -36,11 +36,11 @@ DENOMINATIONS = {
                         0.25:16,
                         1:71,
                         2:12,
-                        5:22,
+                        5:220,
                         10:74,
                         20:32,
                         50:7,
-                        100:54}
+                        100:8}
              },
 }
 
@@ -52,6 +52,9 @@ class StockManager:
         self.dict_stock = DENOMINATIONS.get(typekurs, [])
         if not self.dict_stock:
             raise ValueError(f"Mata uang {typekurs} tidak didukung.")
+        else:
+           #diarrange supaya pecahannya dict values yang dibaca urut dari terbesar ke terkecil
+           self.dict_stock['values'] = dict(sorted(self.dict_stock['values'].items(), key=lambda x: x[0], reverse=True))
 
     def infostock(self):
         print(self.dict_stock['values'])
