@@ -7,7 +7,7 @@ keisan-project/
 ├── otsuri.py       # Logika kembalian uang
 ├── stock.py        # Manajemen stok uang
 ├── data/           # Folder untuk file data
-│   ├── stock.csv   # Data stok pecahan uang
+│   ├── stockuang.csv   # Data stok pecahan uang
 │   ├── kurs.csv    # Data kurs mata uang asing {soon}
 ├── tests/          # Folder untuk unit test {soon}
 ├── utils/          # Helper functions (misal, integrasi kamera) {soon}
@@ -35,9 +35,17 @@ function printreceipt, mengeluarkan output teks berapa saja uang pecahan sebagai
 DENOMINATIONS, dictionary berisi list pecahan tiap mata uang
 dict_stock, menyimpan data kurs seperti simbol dan mengambil data berapa lembar yang dimiliki
 
-function infostock, mengeluarkan output stock data real yang ada
-function updatestock, mengatur ulang stock, memperbaharui dengan pengurangan/penambahan yang ada
-function updatecsv,
+class StockLoader -> bertugas berkomunikasi dengan file-file yang menyimpan stock (memuat data)
+    function loaddata, mengambil data dari csv sesuai file path yang ada
+    function get_stock_currency, mengeluarkan output dari self.data yang sesuai dengan currency tertentu.
+    function converter_df_to_dict, mengubah pandas dataframe menjadi dictionary yang dapat digunakna pada stock manager, menerima input berupa dataframe yang sesuai dengan mata uang tertentu dan mengeluarkan output dictionary
+    function update_csv, memperbarui csv file dengan inputan (dictionary uang baru) sesuai dengan mata uang yang spesifik.
+
+class StockManager -> bertugas mengatur, memanage stock (mengelola stok)
+    function checkempydenom, untuk mengevaluasi apakah ada pecahan yang 0 atau tidak ada stocknya
+    function infostock, mengeluarkan output stock data real yang ada
+    function updatestock, mengatur ulang stock, memperbaharui dengan pengurangan/penambahan yang ada, memanggil function yang ada pada stockloader untuk mendapatkan mengubah csvnya juga
+
 
 '''
 お釣り

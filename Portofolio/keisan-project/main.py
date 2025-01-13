@@ -23,9 +23,5 @@ def calculate(typekurs, totaltrans,totalpay):
 # 	else:
 # 		print("Please re-input your money")
 		
-calculate("JPY",1568,2500)
-print("--")
-calculate("IDR",26700,50000)
-print("--")
-calculate("USD",1568,2500)
+calculate("JPY",5875,10500)
 
